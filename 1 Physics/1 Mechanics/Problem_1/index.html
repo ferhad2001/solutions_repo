@@ -172,65 +172,156 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<h1 id="key-equations-for-projectile-motion">Key Equations for Projectile Motion</h1>
-<h3 id="1-equations-of-motion">1. <strong>Equations of Motion</strong></h3>
-<ul>
+<h1 id="investigating-the-range-as-a-function-of-the-angle-of-projection">Investigating the Range as a Function of the Angle of Projection</h1>
+<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
+<h3 id="equations-of-motion">Equations of Motion</h3>
+<p>For a projectile launched with:
+- Initial velocity <strong>v₀</strong> (m/s)
+- Angle <strong>θ</strong> (degrees)
+- Initial height <strong>y₀</strong> (m)
+- Gravitational acceleration <strong>g</strong> (m/s²)</p>
+<p><strong>Horizontal motion:</strong></p>
+<pre><code>x(t) = v₀ cosθ · t
+</code></pre>
+<p><strong>Vertical motion:</strong></p>
+<pre><code>y(t) = y₀ + v₀ sinθ · t - ½gt²
+</code></pre>
+<h3 id="time-of-flight">Time of Flight</h3>
+<p>The total time in air is found when y(t) = 0:</p>
+<pre><code>t = [v₀ sinθ + √(v₀² sin²θ + 2gy₀)]/g
+</code></pre>
+<h2 id="2-range-analysis">2. Range Analysis</h2>
+<h3 id="range-equation">Range Equation</h3>
+<pre><code>R = v₀ cosθ · t = v₀ cosθ · [v₀ sinθ + √(v₀² sin²θ + 2gy₀)]/g
+</code></pre>
+<h3 id="special-case-y0-0">Special Case (y₀ = 0)</h3>
+<pre><code>R = (v₀² sin2θ)/g
+</code></pre>
+<p>Key properties:
+- Maximum range at θ = 45° (when sin2θ = 1)
+- Symmetric range for complementary angles (θ and 90°-θ)
+- Quadratic dependence on v₀
+- Inverse dependence on g</p>
+<h2 id="3-parameter-effects">3. Parameter Effects</h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Effect on Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>v₀</strong> ↑</td>
+<td>Range increases quadratically</td>
+</tr>
+<tr>
+<td><strong>θ</strong> change</td>
+<td>Creates parabolic range curve peaking at 45°</td>
+</tr>
+<tr>
+<td><strong>y₀</strong> ↑</td>
+<td>Increases range for all angles</td>
+</tr>
+<tr>
+<td><strong>g</strong> ↑</td>
+<td>Decreases range proportionally</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-practical-applications">4. Practical Applications</h2>
+<h3 id="real-world-considerations">Real-World Considerations:</h3>
+<ol>
+<li><strong>Air Resistance</strong></li>
+<li>Creates asymmetric trajectory</li>
+<li>Reduces maximum range</li>
 <li>
-<p><strong>Horizontal motion (no acceleration):</strong>
-     [
-     x = v_0 \cos(\theta) \cdot t
-     ]
-     Where:</p>
-<ul>
-<li><span class="arithmatex">\( x \)</span> is the horizontal displacement,</li>
-<li><span class="arithmatex">\( v_0 \)</span> is the initial velocity,</li>
-<li><span class="arithmatex">\( \theta \)</span> is the launch angle,</li>
-<li><span class="arithmatex">\( t \)</span> is the time of flight.</li>
-</ul>
+<p>Optimal angle becomes &lt;45°</p>
 </li>
 <li>
-<p><strong>Vertical motion (under acceleration due to gravity):</strong>
-     [
-     y = v_0 \sin(\theta) \cdot t - \frac{1}{2} g t^2
-     ]
-     Where:</p>
-<ul>
-<li><span class="arithmatex">\( y \)</span> is the vertical displacement,</li>
-<li><span class="arithmatex">\( g \)</span> is the acceleration due to gravity.</li>
-</ul>
+<p><strong>Elevated Launch/Terrain</strong></p>
 </li>
-</ul>
-<h3 id="2-time-of-flight">2. <strong>Time of Flight</strong></h3>
-<p>The time of flight, <span class="arithmatex">\( t_{\text{total}} \)</span>, is the time it takes for the projectile to return to the ground (when <span class="arithmatex">\( y = 0 \)</span>):
-   [
-   t_{\text{total}} = \frac{2 v_0 \sin(\theta)}{g}
-   ]</p>
-<h3 id="3-range">3. <strong>Range</strong></h3>
-<p>The range <span class="arithmatex">\( R \)</span>, which is the horizontal distance traveled before the projectile returns to the ground, is given by:
-   [
-   R = \frac{v_0^2 \sin(2\theta)}{g}
-   ]
-   This equation shows that the range depends on:
-   - <span class="arithmatex">\( v_0 \)</span>: the initial velocity,
-   - <span class="arithmatex">\( \theta \)</span>: the launch angle,
-   - <span class="arithmatex">\( g \)</span>: the acceleration due to gravity.</p>
-<h3 id="4-maximum-range">4. <strong>Maximum Range</strong></h3>
-<p>The maximum range occurs when the launch angle <span class="arithmatex">\( \theta = 45^\circ \)</span>, because <span class="arithmatex">\( \sin(2\theta) \)</span> is maximized at <span class="arithmatex">\( \theta = 45^\circ \)</span>, giving:
-   [
-   R_{\text{max}} = \frac{v_0^2}{g}
-   ]
-   At this angle, the range is the greatest for a given initial velocity.</p>
-<h3 id="5-effect-of-gravity">5. <strong>Effect of Gravity</strong></h3>
-<p>The range is inversely proportional to gravity. If we increase <span class="arithmatex">\( g \)</span> (e.g., on a planet with higher gravity), the range decreases. If <span class="arithmatex">\( g \)</span> decreases (e.g., on the Moon), the range increases.</p>
+<li>Different launch and landing heights</li>
+<li>
+<p>Requires solving y(t) = y_terrain</p>
+</li>
+<li>
+<p><strong>Wind Effects</strong></p>
+</li>
+<li>Headwind reduces range</li>
+<li>Tailwind increases range</li>
+<li>
+<p>Crosswind causes lateral drift</p>
+</li>
+<li>
+<p><strong>Projectile Characteristics</strong></p>
+</li>
+<li>Spin (Magnus effect)</li>
+<li>Shape affecting drag coefficient</li>
+<li>Surface texture</li>
+</ol>
+<h2 id="5-model-limitations">5. Model Limitations</h2>
+<h3 id="ideal-model-assumptions">Ideal Model Assumptions:</h3>
+<ol>
+<li>Constant gravitational acceleration</li>
+<li>No air resistance</li>
+<li>Flat, uniform terrain</li>
+<li>No other forces (wind, spin, etc.)</li>
+<li>Point mass projectile</li>
+</ol>
+<h3 id="where-model-fails">Where Model Fails:</h3>
 <ul>
-<li>On the Moon (where gravity is about 1/6th of Earth's), the range would increase by a factor of 6 compared to Earth, assuming the same initial velocity.</li>
+<li>High-velocity projectiles (significant air resistance)</li>
+<li>Long-range artillery (Earth's curvature, rotation)</li>
+<li>Sports balls (spin effects)</li>
+<li>High-altitude launches (changing g and air density)</li>
 </ul>
-<h3 id="6-symmetry-of-the-range">6. <strong>Symmetry of the Range</strong></h3>
-<p>The range is symmetric around <span class="arithmatex">\( 45^\circ \)</span>. This means:
-   [
-   \sin(2\theta) = \sin(180^\circ - 2\theta)
-   ]
-   Therefore, the angles <span class="arithmatex">\( \theta \)</span> and <span class="arithmatex">\( 90^\circ - \theta \)</span> will result in the same range.</p>
+<h2 id="6-visualization-concepts">6. Visualization Concepts</h2>
+<h3 id="range-vs-angle-curve">Range vs Angle Curve:</h3>
+<pre><code>    R
+    ↑
+    |     /\
+    |    /  \
+    |   /    \
+    |  /      \
+    | /        \
+    +-----------→ θ
+    0     45    90
+</code></pre>
+<h3 id="key-features-to-visualize">Key Features to Visualize:</h3>
+<ol>
+<li>Symmetric curve for y₀=0 case</li>
+<li>Peak at 45° for basic case</li>
+<li>How curve changes with:</li>
+<li>Different v₀ values</li>
+<li>Non-zero y₀</li>
+<li>Air resistance effects</li>
+<li>Comparison of ideal vs real trajectories</li>
+</ol>
+<h2 id="7-extensions-for-realistic-modeling">7. Extensions for Realistic Modeling</h2>
+<h3 id="improved-physical-models">Improved Physical Models:</h3>
+<ol>
+<li><strong>Air Drag Models</strong></li>
+<li>Linear drag: F_drag = -bv</li>
+<li>
+<p>Quadratic drag: F_drag = -cv|v|</p>
+</li>
+<li>
+<p><strong>Wind Models</strong></p>
+</li>
+<li>Constant wind velocity vector</li>
+<li>
+<p>Altitude-dependent wind profiles</p>
+</li>
+<li>
+<p><strong>Advanced Effects</strong></p>
+</li>
+<li>Magnus effect for spinning projectiles</li>
+<li>Variable atmospheric density</li>
+<li>Earth's rotation (Coriolis effect)</li>
+</ol>
+<h2 id="8-conclusion">8. Conclusion</h2>
+<p>The projectile range-angle relationship demonstrates fundamental physics principles through an elegant mathematical framework. While the basic model provides crucial insights, real-world applications require considering additional physical factors. The symmetric range curve under ideal conditions serves as a foundation for understanding more complex scenarios encountered in engineering, ballistics, and sports science.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
