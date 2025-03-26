@@ -172,6 +172,74 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-3">Problem 3</h1>
+<h1 id="trajectories-of-a-freely-released-payload-near-earth">Trajectories of a Freely Released Payload Near Earth</h1>
+<h2 id="motivation">Motivation</h2>
+<p>When a payload is released from a moving rocket near Earth, its trajectory is influenced by initial conditions (position, velocity) and gravitational forces. This is crucial for understanding orbital insertion, reentry, and escape scenarios.</p>
+<h2 id="key-concepts">Key Concepts</h2>
+<h3 id="1-newtons-law-of-gravitation">1. Newton's Law of Gravitation</h3>
+<p>The gravitational force <span class="arithmatex">\( F \)</span> between two bodies is:</p>
+<div class="arithmatex">\[
+F = \frac{G M m}{r^2}
+\]</div>
+<p>Where:
+- <span class="arithmatex">\( G \)</span> is the gravitational constant,
+- <span class="arithmatex">\( M \)</span> is Earth's mass,
+- <span class="arithmatex">\( m \)</span> is the payload's mass,
+- <span class="arithmatex">\( r \)</span> is the distance between the centers of Earth and the payload.</p>
+<h3 id="2-orbital-types">2. Orbital Types</h3>
+<h4 id="circular-orbit">Circular Orbit:</h4>
+<p>For a circular orbit, the required orbital velocity <span class="arithmatex">\( v_c \)</span> is:</p>
+<div class="arithmatex">\[
+v_c = \sqrt{\frac{GM}{r}}
+\]</div>
+<h4 id="elliptical-orbit">Elliptical Orbit:</h4>
+<p>For elliptical orbits, the velocity varies. The semi-major axis <span class="arithmatex">\( a \)</span> and eccentricity <span class="arithmatex">\( e \)</span> determine the orbit's shape. The vis-viva equation is:</p>
+<div class="arithmatex">\[
+v = \sqrt{GM \left(\frac{2}{r} - \frac{1}{a}\right)}
+\]</div>
+<p>Where:
+- <span class="arithmatex">\( v \)</span> is the velocity at a distance <span class="arithmatex">\( r \)</span>,
+- <span class="arithmatex">\( a \)</span> is the semi-major axis,
+- <span class="arithmatex">\( r \)</span> is the distance from the center of Earth.</p>
+<h4 id="parabolic-orbit">Parabolic Orbit:</h4>
+<p>For a parabolic orbit, the velocity is equal to the escape velocity:</p>
+<div class="arithmatex">\[
+v = v_e = \sqrt{\frac{2GM}{r}}
+\]</div>
+<h4 id="hyperbolic-orbit">Hyperbolic Orbit:</h4>
+<p>For hyperbolic escape, the velocity exceeds the escape velocity. The specific orbital energy <span class="arithmatex">\( \epsilon \)</span> is:</p>
+<div class="arithmatex">\[
+\epsilon = \frac{v^2}{2} - \frac{GM}{r}
+\]</div>
+<p>Where <span class="arithmatex">\( \epsilon &gt; 0 \)</span> for hyperbolic trajectories.</p>
+<h3 id="3-escape-velocity">3. Escape Velocity</h3>
+<p>The escape velocity <span class="arithmatex">\( v_e \)</span> at distance <span class="arithmatex">\( r \)</span> is:</p>
+<div class="arithmatex">\[
+v_e = \sqrt{\frac{2GM}{r}}
+\]</div>
+<p>Where <span class="arithmatex">\( r \)</span> is the radial distance from Earth's center.</p>
+<h2 id="numerical-integration-of-motion">Numerical Integration of Motion</h2>
+<p>The equations of motion under Earth's gravity are:</p>
+<p>[
+\frac{d^2x}{dt^2} = - \frac{GMx}{(x^2 + y^2)^{3/2}}
+]
+[
+\frac{d^2y}{dt^2} = - \frac{GMy}{(x^2 + y^2)^{3/2}}
+]</p>
+<p>Where:
+- <span class="arithmatex">\( x, y \)</span> are the payload’s position coordinates,
+- <span class="arithmatex">\( G \)</span> is the gravitational constant,
+- <span class="arithmatex">\( M \)</span> is Earth's mass.</p>
+<h2 id="applications">Applications</h2>
+<ul>
+<li><strong>Orbital Insertion</strong>: Requires velocity <span class="arithmatex">\( v_c = \sqrt{\frac{GM}{r}} \)</span>.</li>
+<li><strong>Escape</strong>: Achieved when <span class="arithmatex">\( v &gt; v_e \)</span>.</li>
+<li><strong>Reentry</strong>: Occurs when the payload returns with insufficient velocity to maintain orbit.</li>
+</ul>
+<p><img alt="alt text" src="../image-3.png"/>
+<img alt="alt text" src="../image-4.png"/></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The payload’s trajectory depends on initial velocity and position. By applying these equations, we can predict orbital paths, escape conditions, and reentry scenarios.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
