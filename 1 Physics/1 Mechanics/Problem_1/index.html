@@ -48,16 +48,6 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#1-theoretical-foundation">1. Theoretical Foundation</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#2-analysis-of-the-range">2. Analysis of the Range</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#3-practical-applications">3. Practical Applications</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#4-implementation-in-python">4. Implementation in Python</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#5-discussion-on-model-limitations">5. Discussion on Model Limitations</a>
-</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -182,63 +172,73 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="investigating-the-range-as-a-function-of-the-angle-of-projection">Investigating the Range as a Function of the Angle of Projection</h1>
+<h2 id="motivation">Motivation</h2>
+<p>Projectile motion, while seemingly simple, offers a rich playground for exploring fundamental principles of physics. The problem is straightforward: analyze how the range of a projectile depends on its angle of projection. Yet, beneath this simplicity lies a complex and versatile framework. </p>
+<p>The equations governing projectile motion involve both linear and quadratic relationships, making them accessible yet deeply insightful. This study allows us to analyze key parameters such as initial velocity, gravitational acceleration, and launch height, which influence real-world scenarios like sports and rocket trajectories.</p>
 <hr/>
-<h2 id="1-theoretical-foundation"><strong>1. Theoretical Foundation</strong></h2>
-<p>Projectile motion follows Newton’s equations of motion under the influence of gravity. Assuming no air resistance:</p>
+<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
+<h3 id="equations-of-motion">Equations of Motion</h3>
+<p>We derive the equations of motion using kinematic principles:</p>
 <ul>
-<li>The equations for motion in the horizontal and vertical directions are:</li>
+<li><strong>Horizontal motion:</strong>
+  [
+  x = v_0 \cos\theta \cdot t
+  ]</li>
+<li><strong>Vertical motion:</strong>
+  [
+  y = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2
+  ]</li>
 </ul>
-<p>[
-  x(t) = v_0 \cos\theta \cdot t
-  ]</p>
-<p>[
-  y(t) = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2
-  ]</p>
-<p>where:
-  - <span class="arithmatex">\( v_0 \)</span> = initial velocity
-  - <span class="arithmatex">\( \theta \)</span> = launch angle
-  - <span class="arithmatex">\( g \)</span> = gravitational acceleration
-  - <span class="arithmatex">\( x(t) \)</span>, <span class="arithmatex">\( y(t) \)</span> = position at time <span class="arithmatex">\( t \)</span></p>
+<p>The time of flight is obtained by solving for <span class="arithmatex">\( t \)</span> when <span class="arithmatex">\( y = 0 \)</span>:</p>
+<div class="arithmatex">\[
+ t = \frac{2 v_0 \sin\theta}{g}
+\]</div>
+<p>Thus, the <strong>range</strong> <span class="arithmatex">\( R \)</span> is:</p>
+<div class="arithmatex">\[
+ R = v_0 \cos\theta \cdot t = \frac{v_0^2 \sin 2\theta}{g}
+\]</div>
 <ul>
-<li>The time of flight <span class="arithmatex">\( T \)</span> (when <span class="arithmatex">\( y = 0 \)</span>):</li>
-</ul>
-<p>[
-  T = \frac{2 v_0 \sin\theta}{g}
-  ]</p>
-<ul>
-<li>The <strong>range</strong> (horizontal distance when projectile lands):</li>
-</ul>
-<p>[
-  R = v_0 \cos\theta \cdot T = \frac{v_0^2 \sin(2\theta)}{g}
-  ]</p>
-<p>This equation shows that the range is maximized when <span class="arithmatex">\( \theta = 45^\circ \)</span>.</p>
-<hr/>
-<h2 id="2-analysis-of-the-range"><strong>2. Analysis of the Range</strong></h2>
-<ul>
-<li><strong>Dependence on angle:</strong> The function <span class="arithmatex">\( \sin(2\theta) \)</span> is maximum at <span class="arithmatex">\( \theta = 45^\circ \)</span>, meaning the range is longest at this angle.</li>
-<li><strong>Influence of velocity:</strong> <span class="arithmatex">\( R \propto v_0^2 \)</span>, meaning that doubling the initial velocity quadruples the range.</li>
-<li><strong>Effect of gravity:</strong> <span class="arithmatex">\( R \propto 1/g \)</span>, so on planets with lower gravity, the range increases.</li>
+<li>The range depends on both the initial velocity <span class="arithmatex">\( v_0 \)</span> and launch angle <span class="arithmatex">\( \theta \)</span>.</li>
+<li>The <strong>maximum range</strong> occurs at <span class="arithmatex">\( \theta = 45^\circ \)</span>.</li>
 </ul>
 <hr/>
-<h2 id="3-practical-applications"><strong>3. Practical Applications</strong></h2>
+<h2 id="2-analysis-of-the-range">2. Analysis of the Range</h2>
 <ul>
-<li><strong>Sports:</strong> Understanding projectile motion in soccer, basketball, or golf.</li>
-<li><strong>Engineering:</strong> Designing ballistic trajectories for artillery or rockets.</li>
-<li><strong>Astrophysics:</strong> Studying trajectories of celestial objects under gravity.</li>
+<li><strong>Effect of Initial Velocity (<span class="arithmatex">\( v_0 \)</span>)</strong>: Increasing <span class="arithmatex">\( v_0 \)</span> increases the range quadratically.</li>
+<li><strong>Effect of Gravity (<span class="arithmatex">\( g \)</span>)</strong>: Higher gravity (e.g., Jupiter) reduces the range, while lower gravity (e.g., Moon) increases it.</li>
+<li><strong>Effect of Angle (<span class="arithmatex">\( \theta \)</span>)</strong>: The range is symmetric around 45°; i.e., <span class="arithmatex">\( 30^\circ \)</span> and <span class="arithmatex">\( 60^\circ \)</span> yield the same range.</li>
 </ul>
 <hr/>
-<h2 id="4-implementation-in-python"><strong>4. Implementation in Python</strong></h2>
-<p>Here’s a simple Python script to plot the range vs. launch angle:</p>
-<p><img alt="alt text" src="../image.png"/></p>
-<hr/>
-<h2 id="5-discussion-on-model-limitations"><strong>5. Discussion on Model Limitations</strong></h2>
+<h2 id="3-practical-applications">3. Practical Applications</h2>
+<p>This model applies to real-world systems such as:
+- <strong>Sports</strong>: Basketball, soccer, javelin throws.
+- <strong>Engineering</strong>: Ballistic missile trajectories, launch angles for rockets.
+- <strong>Astrophysics</strong>: Projectiles on celestial bodies with varying gravity.</p>
+<h3 id="real-world-challenges">Real-World Challenges:</h3>
 <ul>
-<li><strong>No air resistance:</strong> In real life, drag reduces range.</li>
-<li><strong>Uneven terrain:</strong> Real-world applications require adjusting for ground variations.</li>
-<li><strong>Wind effects:</strong> Wind can alter the projectile’s path.</li>
+<li>Air resistance significantly alters motion.</li>
+<li>Wind and uneven terrain can impact the actual range.</li>
 </ul>
-<p>To improve realism, we could add drag force using numerical methods.</p>
 <hr/>
+<h2 id="4-implementation-in-python">4. Implementation in Python</h2>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<hr/>
+<h2 id="5-limitations-extensions">5. Limitations &amp; Extensions</h2>
+<h3 id="limitations">Limitations</h3>
+<ul>
+<li>Assumes <strong>no air resistance</strong>, <strong>flat terrain</strong>, and <strong>uniform gravity</strong>.</li>
+<li>Ignores rotational effects and wind influence.</li>
+</ul>
+<h3 id="extensions">Extensions</h3>
+<ul>
+<li><strong>Include drag force</strong> for more realistic motion.</li>
+<li><strong>Model projectiles on uneven terrain</strong>.</li>
+<li><strong>Account for varying wind speeds</strong>.</li>
+</ul>
+<hr/>
+<h2 id="conclusion">Conclusion</h2>
+<p>This study demonstrates how fundamental physics principles govern projectile motion. By adjusting parameters such as velocity and gravity, we can model a wide variety of real-world applications. Future work can incorporate more realistic factors such as drag and wind resistance to refine our understanding.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
