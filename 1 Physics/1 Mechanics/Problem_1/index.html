@@ -48,20 +48,6 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#1-equations-of-motion">1. Equations of Motion</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#2-time-of-flight">2. Time of Flight</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#3-range">3. Range</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#4-maximum-range">4. Maximum Range</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#5-effect-of-gravity">5. Effect of Gravity</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#6-symmetry-of-range">6. Symmetry of Range</a>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#7-implementation-in-python">7. Implementation in Python</a>
-</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -186,41 +172,65 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="key-equations-for-projectile-motion">Key Equations for Projectile Motion</h1>
 <h3 id="1-equations-of-motion">1. <strong>Equations of Motion</strong></h3>
 <ul>
-<li>Horizontal motion:
+<li>
+<p><strong>Horizontal motion (no acceleration):</strong>
      [
      x = v_0 \cos(\theta) \cdot t
-     ]</li>
-<li>Vertical motion:
+     ]
+     Where:</p>
+<ul>
+<li><span class="arithmatex">\( x \)</span> is the horizontal displacement,</li>
+<li><span class="arithmatex">\( v_0 \)</span> is the initial velocity,</li>
+<li><span class="arithmatex">\( \theta \)</span> is the launch angle,</li>
+<li><span class="arithmatex">\( t \)</span> is the time of flight.</li>
+</ul>
+</li>
+<li>
+<p><strong>Vertical motion (under acceleration due to gravity):</strong>
      [
      y = v_0 \sin(\theta) \cdot t - \frac{1}{2} g t^2
-     ]</li>
+     ]
+     Where:</p>
+<ul>
+<li><span class="arithmatex">\( y \)</span> is the vertical displacement,</li>
+<li><span class="arithmatex">\( g \)</span> is the acceleration due to gravity.</li>
+</ul>
+</li>
 </ul>
 <h3 id="2-time-of-flight">2. <strong>Time of Flight</strong></h3>
-<p>[
+<p>The time of flight, <span class="arithmatex">\( t_{\text{total}} \)</span>, is the time it takes for the projectile to return to the ground (when <span class="arithmatex">\( y = 0 \)</span>):
+   [
    t_{\text{total}} = \frac{2 v_0 \sin(\theta)}{g}
    ]</p>
 <h3 id="3-range">3. <strong>Range</strong></h3>
-<p>[
-   R = \frac{v_0^2 \sin(2\theta)}{g}
-   ]</p>
-<h3 id="4-maximum-range">4. <strong>Maximum Range</strong></h3>
-<p>[
-   R_{\text{max}} = \frac{v_0^2}{g} \quad \text{at} \ \theta = 45^\circ
-   ]</p>
-<h3 id="5-effect-of-gravity">5. <strong>Effect of Gravity</strong></h3>
-<p>The range is inversely proportional to gravity:
+<p>The range <span class="arithmatex">\( R \)</span>, which is the horizontal distance traveled before the projectile returns to the ground, is given by:
    [
-   R \propto \frac{1}{g}
-   ]</p>
-<h3 id="6-symmetry-of-range">6. <strong>Symmetry of Range</strong></h3>
-<p>[
+   R = \frac{v_0^2 \sin(2\theta)}{g}
+   ]
+   This equation shows that the range depends on:
+   - <span class="arithmatex">\( v_0 \)</span>: the initial velocity,
+   - <span class="arithmatex">\( \theta \)</span>: the launch angle,
+   - <span class="arithmatex">\( g \)</span>: the acceleration due to gravity.</p>
+<h3 id="4-maximum-range">4. <strong>Maximum Range</strong></h3>
+<p>The maximum range occurs when the launch angle <span class="arithmatex">\( \theta = 45^\circ \)</span>, because <span class="arithmatex">\( \sin(2\theta) \)</span> is maximized at <span class="arithmatex">\( \theta = 45^\circ \)</span>, giving:
+   [
+   R_{\text{max}} = \frac{v_0^2}{g}
+   ]
+   At this angle, the range is the greatest for a given initial velocity.</p>
+<h3 id="5-effect-of-gravity">5. <strong>Effect of Gravity</strong></h3>
+<p>The range is inversely proportional to gravity. If we increase <span class="arithmatex">\( g \)</span> (e.g., on a planet with higher gravity), the range decreases. If <span class="arithmatex">\( g \)</span> decreases (e.g., on the Moon), the range increases.</p>
+<ul>
+<li>On the Moon (where gravity is about 1/6th of Earth's), the range would increase by a factor of 6 compared to Earth, assuming the same initial velocity.</li>
+</ul>
+<h3 id="6-symmetry-of-the-range">6. <strong>Symmetry of the Range</strong></h3>
+<p>The range is symmetric around <span class="arithmatex">\( 45^\circ \)</span>. This means:
+   [
    \sin(2\theta) = \sin(180^\circ - 2\theta)
    ]
-   <span class="arithmatex">\( \theta \)</span> and <span class="arithmatex">\( 90^\circ - \theta \)</span> yield the same range.</p>
-<h2 id="7-implementation-in-python">7. Implementation in Python</h2>
-<p><img alt="alt text" src="../image-1.png"/></p>
+   Therefore, the angles <span class="arithmatex">\( \theta \)</span> and <span class="arithmatex">\( 90^\circ - \theta \)</span> will result in the same range.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
