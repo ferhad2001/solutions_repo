@@ -73,6 +73,8 @@ v_e = \sqrt{\frac{2GM}{r}}
 
 Where \( r \) is the radial distance from Earth's center.
 
+Here's the equation written in proper Markdown with LaTeX formatting:
+
 ## Numerical Integration of Motion
 
 The equations of motion under Earth's gravity are:
@@ -80,6 +82,7 @@ The equations of motion under Earth's gravity are:
 \[
 \frac{d^2x}{dt^2} = - \frac{GMx}{(x^2 + y^2)^{3/2}}
 \]
+
 \[
 \frac{d^2y}{dt^2} = - \frac{GMy}{(x^2 + y^2)^{3/2}}
 \]
