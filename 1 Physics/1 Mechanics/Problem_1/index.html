@@ -48,6 +48,16 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#1-theoretical-foundation">1. Theoretical Foundation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-analysis-of-the-range">2. Analysis of the Range</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-practical-applications">3. Practical Applications</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-implementation-in-python">4. Implementation in Python</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#5-discussion-on-model-limitations">5. Discussion on Model Limitations</a>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -172,9 +182,63 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<ol>
-<li>Theoretical Foundation</li>
-</ol>
+<hr/>
+<h2 id="1-theoretical-foundation"><strong>1. Theoretical Foundation</strong></h2>
+<p>Projectile motion follows Newton’s equations of motion under the influence of gravity. Assuming no air resistance:</p>
+<ul>
+<li>The equations for motion in the horizontal and vertical directions are:</li>
+</ul>
+<p>[
+  x(t) = v_0 \cos\theta \cdot t
+  ]</p>
+<p>[
+  y(t) = v_0 \sin\theta \cdot t - \frac{1}{2} g t^2
+  ]</p>
+<p>where:
+  - <span class="arithmatex">\( v_0 \)</span> = initial velocity
+  - <span class="arithmatex">\( \theta \)</span> = launch angle
+  - <span class="arithmatex">\( g \)</span> = gravitational acceleration
+  - <span class="arithmatex">\( x(t) \)</span>, <span class="arithmatex">\( y(t) \)</span> = position at time <span class="arithmatex">\( t \)</span></p>
+<ul>
+<li>The time of flight <span class="arithmatex">\( T \)</span> (when <span class="arithmatex">\( y = 0 \)</span>):</li>
+</ul>
+<p>[
+  T = \frac{2 v_0 \sin\theta}{g}
+  ]</p>
+<ul>
+<li>The <strong>range</strong> (horizontal distance when projectile lands):</li>
+</ul>
+<p>[
+  R = v_0 \cos\theta \cdot T = \frac{v_0^2 \sin(2\theta)}{g}
+  ]</p>
+<p>This equation shows that the range is maximized when <span class="arithmatex">\( \theta = 45^\circ \)</span>.</p>
+<hr/>
+<h2 id="2-analysis-of-the-range"><strong>2. Analysis of the Range</strong></h2>
+<ul>
+<li><strong>Dependence on angle:</strong> The function <span class="arithmatex">\( \sin(2\theta) \)</span> is maximum at <span class="arithmatex">\( \theta = 45^\circ \)</span>, meaning the range is longest at this angle.</li>
+<li><strong>Influence of velocity:</strong> <span class="arithmatex">\( R \propto v_0^2 \)</span>, meaning that doubling the initial velocity quadruples the range.</li>
+<li><strong>Effect of gravity:</strong> <span class="arithmatex">\( R \propto 1/g \)</span>, so on planets with lower gravity, the range increases.</li>
+</ul>
+<hr/>
+<h2 id="3-practical-applications"><strong>3. Practical Applications</strong></h2>
+<ul>
+<li><strong>Sports:</strong> Understanding projectile motion in soccer, basketball, or golf.</li>
+<li><strong>Engineering:</strong> Designing ballistic trajectories for artillery or rockets.</li>
+<li><strong>Astrophysics:</strong> Studying trajectories of celestial objects under gravity.</li>
+</ul>
+<hr/>
+<h2 id="4-implementation-in-python"><strong>4. Implementation in Python</strong></h2>
+<p>Here’s a simple Python script to plot the range vs. launch angle:</p>
+<p><img alt="alt text" src="../image.png"/></p>
+<hr/>
+<h2 id="5-discussion-on-model-limitations"><strong>5. Discussion on Model Limitations</strong></h2>
+<ul>
+<li><strong>No air resistance:</strong> In real life, drag reduces range.</li>
+<li><strong>Uneven terrain:</strong> Real-world applications require adjusting for ground variations.</li>
+<li><strong>Wind effects:</strong> Wind can alter the projectile’s path.</li>
+</ul>
+<p>To improve realism, we could add drag force using numerical methods.</p>
+<hr/>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
