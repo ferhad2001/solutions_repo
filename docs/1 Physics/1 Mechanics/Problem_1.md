@@ -133,6 +133,8 @@ Key properties:
    - Variable atmospheric density
    - Earth's rotation (Coriolis effect)
 
+   ![alt text](image-8.png)
+
 ## 8. Conclusion
 
 The projectile range-angle relationship demonstrates fundamental physics principles through an elegant mathematical framework. While the basic model provides crucial insights, real-world applications require considering additional physical factors. The symmetric range curve under ideal conditions serves as a foundation for understanding more complex scenarios encountered in engineering, ballistics, and sports science.
