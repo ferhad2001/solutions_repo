@@ -1,8 +1,5 @@
 # Problem 2
 
-Here's the markdown version for Visual Studio:
-
-```markdown
 # Forced Damped Pendulum Dynamics
 
 ## Motivation
@@ -55,44 +52,5 @@ At resonance:
 
 ## 4. Implementation
 
-![alt text](image-4.png)
-![alt text](image-5.png)
----
-
-## 5. Advanced Analysis
-
-### Phase Portrait
-
-\[
-\dot{\theta} \text{ vs. } \theta
-\]
-
-### Poincaré Section
-
-Sample system at intervals \( T = \frac{2\pi}{\omega} \).
-
-### Bifurcation Diagram
-
-Plot \( A \) vs. amplitude to see chaotic transitions.
-
----
-
-## 6. Limitations & Extensions
-
-### Limitations
-
-- Ignores air resistance.
-- Assumes rigid pendulum.
-
-### Extensions
-
-- Nonlinear damping: \( b(\theta) \).
-- Random forcing: \( F(t) \).
-- Coupled pendulums: \( \theta_1 \neq \theta_2 \).
-
----
-
-## Conclusion
-
-This model demonstrates periodic to chaotic motion, with potential applications in engineering and physics.
-```
+![alt text](image-6.png)
+![alt text](image-7.png)
