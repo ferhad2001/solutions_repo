@@ -172,89 +172,77 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
-<h1 id="wave-interference-analysis">Wave Interference Analysis</h1>
-<h2 id="core-equations">Core Equations</h2>
-<h3 id="single-source-wave">Single Source Wave</h3>
-<p>For source at (x₀, y₀):</p>
-<p>[
-\eta_i = \frac{A}{\sqrt{r_i}} \cos(kr_i - \omega t + \phi_i)
-]
-[
+<h1 id="wave-interference-formulation">Wave Interference Formulation</h1>
+<h2 id="core-wave-equations">Core Wave Equations</h2>
+<h3 id="single-source-waveform">Single Source Waveform</h3>
+<p>For a point source located at <span class="arithmatex">\((x_i, y_i)\)</span>:</p>
+<div class="arithmatex">\[
+\eta_i(x,y,t) = \frac{A}{\sqrt{r_i}} \cos(kr_i - \omega t + \phi_i)
+\]</div>
+<p>where:
+$$
 r_i = \sqrt{(x-x_i)^2 + (y-y_i)^2}
-]</p>
-<h3 id="n-source-superposition">N-Source Superposition</h3>
-<div class="arithmatex">\[
-\eta_{total} = \sum_{i=1}^N \eta_i
-\]</div>
-<h2 id="key-parameters">Key Parameters</h2>
+$$</p>
+<h3 id="key-wave-parameters">Key Wave Parameters</h3>
 <table>
 <thead>
 <tr>
+<th>Parameter</th>
 <th>Symbol</th>
-<th>Meaning</th>
-<th>Relation</th>
+<th>Equation</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>k</td>
 <td>Wavenumber</td>
-<td><span class="arithmatex">\(k = \frac{2π}{λ}\)</span></td>
+<td><span class="arithmatex">\(k\)</span></td>
+<td><span class="arithmatex">\(k = \frac{2\pi}{\lambda}\)</span></td>
 </tr>
 <tr>
-<td>ω</td>
 <td>Angular frequency</td>
-<td><span class="arithmatex">\(ω = 2πf\)</span></td>
+<td><span class="arithmatex">\(\omega\)</span></td>
+<td><span class="arithmatex">\(\omega = 2\pi f\)</span></td>
 </tr>
 <tr>
-<td>rᵢ</td>
-<td>Distance</td>
-<td><span class="arithmatex">\(r_i = \sqrt{(x-x_i)^2 + (y-y_i)^2}\)</span></td>
+<td>Phase velocity</td>
+<td><span class="arithmatex">\(v_p\)</span></td>
+<td><span class="arithmatex">\(v_p = \frac{\omega}{k} = \lambda f\)</span></td>
 </tr>
 </tbody>
 </table>
+<p><img alt="alt text" src="../image-1.png"/></p>
+<h2 id="extended-formulation">Extended Formulation</h2>
+<h3 id="complex-representation">Complex Representation</h3>
+<div class="arithmatex">\[
+\tilde{\eta}_i(x,y,t) = \frac{A}{\sqrt{r_i}} e^{i(kr_i - \omega t + \phi_i)}
+\]</div>
+<h3 id="superposition-principle">Superposition Principle</h3>
+<p>For <span class="arithmatex">\(N\)</span> sources:
+$$
+\eta_{total}(x,y,t) = \sum_{i=1}^N \eta_i(x,y,t)
+$$</p>
+<h3 id="phase-difference">Phase Difference</h3>
+<p>Between two sources <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span>:
+$$
+\Delta\phi_{ij} = k(r_i - r_j) + (\phi_i - \phi_j)
+$$</p>
 <h2 id="interference-conditions">Interference Conditions</h2>
-<h3 id="constructive">Constructive</h3>
-<div class="arithmatex">\[
-Δr = nλ \quad (n ∈ ℤ)
-\]</div>
-<h3 id="destructive">Destructive</h3>
-<div class="arithmatex">\[
-Δr = (n + \frac{1}{2})λ \quad (n ∈ ℤ)
-\]</div>
-<h2 id="polygon-geometry">Polygon Geometry</h2>
-<p>For regular N-gon:
-[
-x_i = R\cos\left(\frac{2πi}{N}\right)
-]
-[
-y_i = R\sin\left(\frac{2πi}{N}\right)
-]
-where R = circumradius</p>
-<p><img alt="alt text" src="../image.png"/></p>
-<h2 id="pattern-features">Pattern Features</h2>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Mathematical Condition</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Nodal lines</td>
-<td><span class="arithmatex">\(\eta_{total} = 0\)</span></td>
-</tr>
-<tr>
-<td>Anti-nodes</td>
-<td><span class="arithmatex">\(\eta_{total} = \text{max}\)</span></td>
-</tr>
-<tr>
-<td>Symmetry</td>
-<td>N-fold rotational</td>
-</tr>
-</tbody>
-</table>
+<h3 id="constructive-interference">Constructive Interference</h3>
+<p>When:
+$$
+\Delta\phi_{ij} = 2n\pi \quad (n \in \mathbb{Z})
+$$</p>
+<h3 id="destructive-interference">Destructive Interference</h3>
+<p>When:
+$$
+\Delta\phi_{ij} = (2n+1)\pi \quad (n \in \mathbb{Z})
+$$</p>
+<h2 id="special-case-two-sources">Special Case: Two Sources</h2>
+<p>Resultant wave:
+$$
+\eta_{total} = \frac{2A}{\sqrt{r}} \cos\left(\frac{k\Delta r}{2}\right) \cos\left(kr - \omega t + \bar{\phi}\right)
+$$
+where <span class="arithmatex">\(\Delta r = r_1 - r_2\)</span> and <span class="arithmatex">\(\bar{\phi} = \frac{\phi_1+\phi_2}{2}\)</span></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
