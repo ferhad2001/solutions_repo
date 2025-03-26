@@ -172,100 +172,43 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-2">Problem 2</h1>
-<p>Here's the markdown version for Visual Studio:</p>
-<pre><code class="language-markdown"># Forced Damped Pendulum Dynamics
-
-## Motivation
-
-The forced damped pendulum shows behavior from damping, restoring forces, and external forcing, leading to resonance, chaos, and quasiperiodic motion.
-
----
-
-## 1. Theoretical Foundation
-
-### Governing Equation
-
-\[
+<h1 id="forced-damped-pendulum-dynamics">Forced Damped Pendulum Dynamics</h1>
+<h2 id="motivation">Motivation</h2>
+<p>The forced damped pendulum shows behavior from damping, restoring forces, and external forcing, leading to resonance, chaos, and quasiperiodic motion.</p>
+<hr/>
+<h2 id="1-theoretical-foundation">1. Theoretical Foundation</h2>
+<h3 id="governing-equation">Governing Equation</h3>
+<div class="arithmatex">\[
 \ddot{\theta} + b \dot{\theta} + \frac{g}{L} \sin(\theta) = A \cos(\omega t)
-\]
-
-For small angles, \( \sin(\theta) \approx \theta \):
-
-\[
+\]</div>
+<p>For small angles, <span class="arithmatex">\( \sin(\theta) \approx \theta \)</span>:</p>
+<div class="arithmatex">\[
 \ddot{\theta} + b \dot{\theta} + \frac{g}{L} \theta = A \cos(\omega t)
-\]
-
-### Resonance Condition
-
-At resonance: 
-
-\[
+\]</div>
+<h3 id="resonance-condition">Resonance Condition</h3>
+<p>At resonance: </p>
+<div class="arithmatex">\[
 \omega = \sqrt{\frac{g}{L}}
-\]
-
----
-
-## 2. Dynamics Analysis
-
-### Parameter Influence
-
-- **Damping**: Increases damping reduces oscillation amplitude.
-- **Driving Amplitude**: Larger \( A \) increases transition to chaotic behavior.
-- **Driving Frequency**: Resonance at \( \omega \approx \sqrt{\frac{g}{L}} \).
-
----
-
-## 3. Practical Applications
-
-- **Energy Harvesting**: Pendulum motion generates power.
-- **Suspension Bridges**: Modeling vibrations.
-- **Oscillating Circuits**: Similar to driven RLC circuits.
-
----
-
-## 4. Implementation
-
-![alt text](image-4.png)
-![alt text](image-5.png)
----
-
-## 5. Advanced Analysis
-
-### Phase Portrait
-
-\[
-\dot{\theta} \text{ vs. } \theta
-\]
-
-### Poincaré Section
-
-Sample system at intervals \( T = \frac{2\pi}{\omega} \).
-
-### Bifurcation Diagram
-
-Plot \( A \) vs. amplitude to see chaotic transitions.
-
----
-
-## 6. Limitations &amp; Extensions
-
-### Limitations
-
-- Ignores air resistance.
-- Assumes rigid pendulum.
-
-### Extensions
-
-- Nonlinear damping: \( b(\theta) \).
-- Random forcing: \( F(t) \).
-- Coupled pendulums: \( \theta_1 \neq \theta_2 \).
-
----
-
-## Conclusion
-
-This model demonstrates periodic to chaotic motion, with potential applications in engineering and physics.
-</code></pre>
+\]</div>
+<hr/>
+<h2 id="2-dynamics-analysis">2. Dynamics Analysis</h2>
+<h3 id="parameter-influence">Parameter Influence</h3>
+<ul>
+<li><strong>Damping</strong>: Increases damping reduces oscillation amplitude.</li>
+<li><strong>Driving Amplitude</strong>: Larger <span class="arithmatex">\( A \)</span> increases transition to chaotic behavior.</li>
+<li><strong>Driving Frequency</strong>: Resonance at <span class="arithmatex">\( \omega \approx \sqrt{\frac{g}{L}} \)</span>.</li>
+</ul>
+<hr/>
+<h2 id="3-practical-applications">3. Practical Applications</h2>
+<ul>
+<li><strong>Energy Harvesting</strong>: Pendulum motion generates power.</li>
+<li><strong>Suspension Bridges</strong>: Modeling vibrations.</li>
+<li><strong>Oscillating Circuits</strong>: Similar to driven RLC circuits.</li>
+</ul>
+<hr/>
+<h2 id="4-implementation">4. Implementation</h2>
+<p><img alt="alt text" src="../image-6.png"/>
+<img alt="alt text" src="../image-7.png"/></p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
