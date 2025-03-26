@@ -172,6 +172,89 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="problem-1">Problem 1</h1>
+<h1 id="wave-interference-analysis">Wave Interference Analysis</h1>
+<h2 id="core-equations">Core Equations</h2>
+<h3 id="single-source-wave">Single Source Wave</h3>
+<p>For source at (x₀, y₀):</p>
+<p>[
+\eta_i = \frac{A}{\sqrt{r_i}} \cos(kr_i - \omega t + \phi_i)
+]
+[
+r_i = \sqrt{(x-x_i)^2 + (y-y_i)^2}
+]</p>
+<h3 id="n-source-superposition">N-Source Superposition</h3>
+<div class="arithmatex">\[
+\eta_{total} = \sum_{i=1}^N \eta_i
+\]</div>
+<h2 id="key-parameters">Key Parameters</h2>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Relation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>k</td>
+<td>Wavenumber</td>
+<td><span class="arithmatex">\(k = \frac{2π}{λ}\)</span></td>
+</tr>
+<tr>
+<td>ω</td>
+<td>Angular frequency</td>
+<td><span class="arithmatex">\(ω = 2πf\)</span></td>
+</tr>
+<tr>
+<td>rᵢ</td>
+<td>Distance</td>
+<td><span class="arithmatex">\(r_i = \sqrt{(x-x_i)^2 + (y-y_i)^2}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="interference-conditions">Interference Conditions</h2>
+<h3 id="constructive">Constructive</h3>
+<div class="arithmatex">\[
+Δr = nλ \quad (n ∈ ℤ)
+\]</div>
+<h3 id="destructive">Destructive</h3>
+<div class="arithmatex">\[
+Δr = (n + \frac{1}{2})λ \quad (n ∈ ℤ)
+\]</div>
+<h2 id="polygon-geometry">Polygon Geometry</h2>
+<p>For regular N-gon:
+[
+x_i = R\cos\left(\frac{2πi}{N}\right)
+]
+[
+y_i = R\sin\left(\frac{2πi}{N}\right)
+]
+where R = circumradius</p>
+<p><img alt="alt text" src="../image.png"/></p>
+<h2 id="pattern-features">Pattern Features</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Mathematical Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Nodal lines</td>
+<td><span class="arithmatex">\(\eta_{total} = 0\)</span></td>
+</tr>
+<tr>
+<td>Anti-nodes</td>
+<td><span class="arithmatex">\(\eta_{total} = \text{max}\)</span></td>
+</tr>
+<tr>
+<td>Symmetry</td>
+<td>N-fold rotational</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
