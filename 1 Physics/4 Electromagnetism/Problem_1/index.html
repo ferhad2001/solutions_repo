@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>📘 Lorentz Force Simulation: Key Formulas - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "\ud83d\udcd8 Lorentz Force Simulation: Key Formulas";
         var mkdocs_page_input_path = "1 Physics/4 Electromagnetism/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -70,8 +70,22 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">4 Electromagnetism</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">📘 Lorentz Force Simulation: Key Formulas</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#lorentz-force">⚡ Lorentz Force</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#equations-of-motion">🧮 Equations of Motion</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#euler-method-discretized-form">🔄 Euler Method (Discretized Form)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#runge-kutta-method-4th-order-conceptual">🔁 Runge-Kutta Method (4th Order — Conceptual)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#larmor-radius-for-circular-motion-in-magnetic-field">🔁 Larmor Radius (for Circular Motion in Magnetic Field)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#cyclotron-frequency">⏰ Cyclotron Frequency</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#drift-velocity-for-crossed-vece-and-vecb-fields">📐 Drift Velocity (for Crossed \( \vec{E} \) and \( \vec{B} \) Fields)</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -163,7 +177,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">4 Electromagnetism</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">📘 Lorentz Force Simulation: Key Formulas</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,19 +185,74 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<p>import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D</p>
-<h1 id="constants">Constants</h1>
-<p>q = 1.0     # charge (C)
-m = 1.0     # mass (kg)
-E = np.array([0.0, 0.0, 0.0])  # Electric field (V/m)
-B = np.array([0.0, 0.0, 1.0])  # Magnetic field (T)</p>
-<h1 id="initial-conditions">Initial conditions</h1>
-<p>r = np.array([0.0, 0.0, 0.0])  # Initial position
-v = np.array([1.0, 0.0, 0.0])  # Initial velocity
-dt = 0.01                      # Time step (s)
-steps = 1000                  # Number of steps</p>
+<h1 id="lorentz-force-simulation-key-formulas">📘 Lorentz Force Simulation: Key Formulas</h1>
+<h2 id="lorentz-force">⚡ Lorentz Force</h2>
+<p>The Lorentz force on a charged particle is given by:</p>
+<div class="arithmatex">\[
+\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})
+\]</div>
+<p>Where:
+- <span class="arithmatex">\( \vec{F} \)</span>: Force on the particle (N)
+- <span class="arithmatex">\( q \)</span>: Charge of the particle (C)
+- <span class="arithmatex">\( \vec{E} \)</span>: Electric field (V/m)
+- <span class="arithmatex">\( \vec{v} \)</span>: Particle velocity (m/s)
+- <span class="arithmatex">\( \vec{B} \)</span>: Magnetic field (T)</p>
+<hr/>
+<h2 id="equations-of-motion">🧮 Equations of Motion</h2>
+<p>From Newton's second law:</p>
+<div class="arithmatex">\[
+\vec{F} = m \frac{d\vec{v}}{dt}
+\quad \Rightarrow \quad 
+\frac{d\vec{v}}{dt} = \frac{q}{m} (\vec{E} + \vec{v} \times \vec{B})
+\]</div>
+<div class="arithmatex">\[
+\frac{d\vec{r}}{dt} = \vec{v}
+\]</div>
+<p>These are solved numerically using Euler or Runge-Kutta methods.</p>
+<hr/>
+<h2 id="euler-method-discretized-form">🔄 Euler Method (Discretized Form)</h2>
+<div class="arithmatex">\[
+\vec{v}_{n+1} = \vec{v}_n + \frac{q}{m} (\vec{E} + \vec{v}_n \times \vec{B}) \Delta t
+\]</div>
+<div class="arithmatex">\[
+\vec{r}_{n+1} = \vec{r}_n + \vec{v}_n \Delta t
+\]</div>
+<hr/>
+<h2 id="runge-kutta-method-4th-order-conceptual">🔁 Runge-Kutta Method (4th Order — Conceptual)</h2>
+<p>Intermediate steps:</p>
+<div class="arithmatex">\[
+k_1 = f(t_n, y_n)
+\quad k_2 = f\left(t_n + \frac{h}{2}, y_n + \frac{h}{2}k_1\right)
+\quad k_3 = f\left(t_n + \frac{h}{2}, y_n + \frac{h}{2}k_2\right)
+\quad k_4 = f\left(t_n + h, y_n + hk_3\right)
+\]</div>
+<p>Then update:</p>
+<div class="arithmatex">\[
+y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)
+\]</div>
+<hr/>
+<h2 id="larmor-radius-for-circular-motion-in-magnetic-field">🔁 Larmor Radius (for Circular Motion in Magnetic Field)</h2>
+<div class="arithmatex">\[
+r_L = \frac{mv_\perp}{|q|B}
+\]</div>
+<p>Where <span class="arithmatex">\( v_\perp \)</span> is the component of velocity perpendicular to <span class="arithmatex">\( \vec{B} \)</span>.</p>
+<hr/>
+<h2 id="cyclotron-frequency">⏰ Cyclotron Frequency</h2>
+<div class="arithmatex">\[
+\omega_c = \frac{|q|B}{m}
+\quad \Rightarrow \quad 
+T = \frac{2\pi}{\omega_c}
+\]</div>
+<p>Where:
+- <span class="arithmatex">\( \omega_c \)</span>: Angular frequency of circular motion
+- <span class="arithmatex">\( T \)</span>: Period of revolution</p>
+<hr/>
+<h2 id="drift-velocity-for-crossed-vece-and-vecb-fields">📐 Drift Velocity (for Crossed <span class="arithmatex">\( \vec{E} \)</span> and <span class="arithmatex">\( \vec{B} \)</span> Fields)</h2>
+<div class="arithmatex">\[
+\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}
+\]</div>
+<hr/>
+<p>Feel free to tweak field or particle parameters and observe how the motion changes in your simulation! ⚛️</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
