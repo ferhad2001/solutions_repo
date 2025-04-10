@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>📘 Lorentz Force Simulation: Key Formulas - Physics and Mathematics</title>
+<title>🧲 Lorentz Force Simulation – Extended Formula Reference - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "\ud83d\udcd8 Lorentz Force Simulation: Key Formulas";
+        var mkdocs_page_name = "\ud83e\uddf2 Lorentz Force Simulation \u2013 Extended Formula Reference";
         var mkdocs_page_input_path = "1 Physics/4 Electromagnetism/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -70,21 +70,27 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">4 Electromagnetism</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">📘 Lorentz Force Simulation: Key Formulas</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">🧲 Lorentz Force Simulation – Extended Formula Reference</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#lorentz-force">⚡ Lorentz Force</a>
+<li class="toctree-l3"><a class="reference internal" href="#1-lorentz-force">📌 1. Lorentz Force</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#equations-of-motion">🧮 Equations of Motion</a>
+<li class="toctree-l3"><a class="reference internal" href="#2-newtons-second-law-applied">📌 2. Newton’s Second Law Applied</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#euler-method-discretized-form">🔄 Euler Method (Discretized Form)</a>
+<li class="toctree-l3"><a class="reference internal" href="#3-discrete-update-equations-eulers-method">📌 3. Discrete Update Equations (Euler’s Method)</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#runge-kutta-method-4th-order-conceptual">🔁 Runge-Kutta Method (4th Order — Conceptual)</a>
+<li class="toctree-l3"><a class="reference internal" href="#4-runge-kutta-4th-order-method-conceptual">📌 4. Runge-Kutta 4th Order Method (Conceptual)</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#larmor-radius-for-circular-motion-in-magnetic-field">🔁 Larmor Radius (for Circular Motion in Magnetic Field)</a>
+<li class="toctree-l3"><a class="reference internal" href="#5-larmor-radius-for-circular-motion-in-magnetic-field">📌 5. Larmor Radius (for Circular Motion in Magnetic Field)</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#cyclotron-frequency">⏰ Cyclotron Frequency</a>
+<li class="toctree-l3"><a class="reference internal" href="#6-cyclotron-frequency-and-period">📌 6. Cyclotron Frequency and Period</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#drift-velocity-for-crossed-vece-and-vecb-fields">📐 Drift Velocity (for Crossed \( \vec{E} \) and \( \vec{B} \) Fields)</a>
+<li class="toctree-l3"><a class="reference internal" href="#7-drift-velocity-for-crossed-vece-and-vecb-fields">📌 7. Drift Velocity (for Crossed \( \vec{E} \) and \( \vec{B} \) Fields)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#8-helical-path-in-uniform-vecb">📌 8. Helical Path in Uniform \( \vec{B} \)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#9-magnetic-mirror-effect">📌 9. Magnetic Mirror Effect</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#10-energy-considerations">📌 10. Energy Considerations</a>
 </li>
 </ul>
 </li>
@@ -177,7 +183,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">4 Electromagnetism</li>
-<li class="breadcrumb-item active">📘 Lorentz Force Simulation: Key Formulas</li>
+<li class="breadcrumb-item active">🧲 Lorentz Force Simulation – Extended Formula Reference</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -185,32 +191,28 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="lorentz-force-simulation-key-formulas">📘 Lorentz Force Simulation: Key Formulas</h1>
-<h2 id="lorentz-force">⚡ Lorentz Force</h2>
-<p>The Lorentz force on a charged particle is given by:</p>
+<h1 id="lorentz-force-simulation-extended-formula-reference">🧲 Lorentz Force Simulation – Extended Formula Reference</h1>
+<h2 id="1-lorentz-force">📌 1. Lorentz Force</h2>
 <div class="arithmatex">\[
 \vec{F} = q(\vec{E} + \vec{v} \times \vec{B})
 \]</div>
-<p>Where:
-- <span class="arithmatex">\( \vec{F} \)</span>: Force on the particle (N)
-- <span class="arithmatex">\( q \)</span>: Charge of the particle (C)
-- <span class="arithmatex">\( \vec{E} \)</span>: Electric field (V/m)
-- <span class="arithmatex">\( \vec{v} \)</span>: Particle velocity (m/s)
-- <span class="arithmatex">\( \vec{B} \)</span>: Magnetic field (T)</p>
+<ul>
+<li><span class="arithmatex">\( \vec{F} \)</span>: Net force on the charged particle (N)</li>
+<li><span class="arithmatex">\( q \)</span>: Electric charge (C)</li>
+<li><span class="arithmatex">\( \vec{E} \)</span>: Electric field (V/m)</li>
+<li><span class="arithmatex">\( \vec{v} \)</span>: Velocity vector of the particle (m/s)</li>
+<li><span class="arithmatex">\( \vec{B} \)</span>: Magnetic field (T)</li>
+</ul>
 <hr/>
-<h2 id="equations-of-motion">🧮 Equations of Motion</h2>
-<p>From Newton's second law:</p>
+<h2 id="2-newtons-second-law-applied">📌 2. Newton’s Second Law Applied</h2>
 <div class="arithmatex">\[
-\vec{F} = m \frac{d\vec{v}}{dt}
-\quad \Rightarrow \quad 
-\frac{d\vec{v}}{dt} = \frac{q}{m} (\vec{E} + \vec{v} \times \vec{B})
+\vec{F} = m \frac{d\vec{v}}{dt} \Rightarrow \frac{d\vec{v}}{dt} = \frac{q}{m} (\vec{E} + \vec{v} \times \vec{B})
 \]</div>
 <div class="arithmatex">\[
 \frac{d\vec{r}}{dt} = \vec{v}
 \]</div>
-<p>These are solved numerically using Euler or Runge-Kutta methods.</p>
 <hr/>
-<h2 id="euler-method-discretized-form">🔄 Euler Method (Discretized Form)</h2>
+<h2 id="3-discrete-update-equations-eulers-method">📌 3. Discrete Update Equations (Euler’s Method)</h2>
 <div class="arithmatex">\[
 \vec{v}_{n+1} = \vec{v}_n + \frac{q}{m} (\vec{E} + \vec{v}_n \times \vec{B}) \Delta t
 \]</div>
@@ -218,39 +220,73 @@
 \vec{r}_{n+1} = \vec{r}_n + \vec{v}_n \Delta t
 \]</div>
 <hr/>
-<h2 id="runge-kutta-method-4th-order-conceptual">🔁 Runge-Kutta Method (4th Order — Conceptual)</h2>
-<p>Intermediate steps:</p>
+<h2 id="4-runge-kutta-4th-order-method-conceptual">📌 4. Runge-Kutta 4th Order Method (Conceptual)</h2>
+<p>To solve <span class="arithmatex">\( \frac{dy}{dt} = f(t, y) \)</span>:</p>
 <div class="arithmatex">\[
-k_1 = f(t_n, y_n)
-\quad k_2 = f\left(t_n + \frac{h}{2}, y_n + \frac{h}{2}k_1\right)
-\quad k_3 = f\left(t_n + \frac{h}{2}, y_n + \frac{h}{2}k_2\right)
-\quad k_4 = f\left(t_n + h, y_n + hk_3\right)
+\begin{aligned}
+k_1 &amp;= f(t_n, y_n) \\
+k_2 &amp;= f\left(t_n + \frac{h}{2}, y_n + \frac{h}{2}k_1\right) \\
+k_3 &amp;= f\left(t_n + \frac{h}{2}, y_n + \frac{h}{2}k_2\right) \\
+k_4 &amp;= f\left(t_n + h, y_n + hk_3\right)
+\end{aligned}
 \]</div>
-<p>Then update:</p>
 <div class="arithmatex">\[
 y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)
 \]</div>
 <hr/>
-<h2 id="larmor-radius-for-circular-motion-in-magnetic-field">🔁 Larmor Radius (for Circular Motion in Magnetic Field)</h2>
+<h2 id="5-larmor-radius-for-circular-motion-in-magnetic-field">📌 5. Larmor Radius (for Circular Motion in Magnetic Field)</h2>
 <div class="arithmatex">\[
 r_L = \frac{mv_\perp}{|q|B}
 \]</div>
-<p>Where <span class="arithmatex">\( v_\perp \)</span> is the component of velocity perpendicular to <span class="arithmatex">\( \vec{B} \)</span>.</p>
+<ul>
+<li><span class="arithmatex">\( v_\perp \)</span>: Component of velocity perpendicular to <span class="arithmatex">\( \vec{B} \)</span></li>
+</ul>
 <hr/>
-<h2 id="cyclotron-frequency">⏰ Cyclotron Frequency</h2>
+<h2 id="6-cyclotron-frequency-and-period">📌 6. Cyclotron Frequency and Period</h2>
 <div class="arithmatex">\[
 \omega_c = \frac{|q|B}{m}
-\quad \Rightarrow \quad 
+\quad \text{and} \quad
 T = \frac{2\pi}{\omega_c}
 \]</div>
-<p>Where:
-- <span class="arithmatex">\( \omega_c \)</span>: Angular frequency of circular motion
-- <span class="arithmatex">\( T \)</span>: Period of revolution</p>
+<ul>
+<li><span class="arithmatex">\( \omega_c \)</span>: Angular frequency (rad/s)</li>
+<li><span class="arithmatex">\( T \)</span>: Period of revolution (s)</li>
+</ul>
 <hr/>
-<h2 id="drift-velocity-for-crossed-vece-and-vecb-fields">📐 Drift Velocity (for Crossed <span class="arithmatex">\( \vec{E} \)</span> and <span class="arithmatex">\( \vec{B} \)</span> Fields)</h2>
+<h2 id="7-drift-velocity-for-crossed-vece-and-vecb-fields">📌 7. Drift Velocity (for Crossed <span class="arithmatex">\( \vec{E} \)</span> and <span class="arithmatex">\( \vec{B} \)</span> Fields)</h2>
 <div class="arithmatex">\[
 \vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}
 \]</div>
+<p>This drift is independent of charge and mass!</p>
+<hr/>
+<h2 id="8-helical-path-in-uniform-vecb">📌 8. Helical Path in Uniform <span class="arithmatex">\( \vec{B} \)</span></h2>
+<p>If <span class="arithmatex">\( \vec{v} \)</span> has both <span class="arithmatex">\( \perp \)</span> and <span class="arithmatex">\( \parallel \)</span> components to <span class="arithmatex">\( \vec{B} \)</span>, the motion becomes <strong>helical</strong>:</p>
+<ul>
+<li><span class="arithmatex">\( v_\perp \rightarrow \)</span> Circular motion</li>
+<li><span class="arithmatex">\( v_\parallel \rightarrow \)</span> Linear motion along <span class="arithmatex">\( \vec{B} \)</span></li>
+</ul>
+<hr/>
+<h2 id="9-magnetic-mirror-effect">📌 9. Magnetic Mirror Effect</h2>
+<p>In a non-uniform magnetic field (e.g., magnetic bottle):</p>
+<div class="arithmatex">\[
+\mu = \frac{mv_\perp^2}{2B} = \text{constant}
+\]</div>
+<p>The particle can be reflected if <span class="arithmatex">\( B \)</span> increases and <span class="arithmatex">\( v_\perp \)</span> dominates.</p>
+<hr/>
+<h2 id="10-energy-considerations">📌 10. Energy Considerations</h2>
+<ul>
+<li>Magnetic field does <strong>no work</strong>: It only changes <strong>direction</strong>, not speed:</li>
+</ul>
+<div class="arithmatex">\[
+\vec{F}_B \cdot \vec{v} = 0
+\]</div>
+<ul>
+<li>Electric field can change <strong>speed</strong> and <strong>energy</strong>:</li>
+</ul>
+<div class="arithmatex">\[
+W = q \vec{E} \cdot \vec{d}
+\]</div>
+<hr/>
 <hr/>
 <p><img alt="alt text" src="../image.png"/>
 <img alt="alt text" src="../image-1.png"/></p>
