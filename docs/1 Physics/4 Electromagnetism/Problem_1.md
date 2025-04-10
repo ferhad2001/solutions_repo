@@ -1,46 +1,101 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+# 📘 Lorentz Force Simulation: Key Formulas
 
-# Constants
-q = 1.6e-19  # Charge of the particle (Coulombs)
-m = 9.11e-31  # Mass of the particle (kg)
-B = np.array([0, 0, 1])  # Magnetic field (T)
-E = np.array([0, 0, 0])  # Electric field (V/m)
-v0 = np.array([1e6, 0, 0])  # Initial velocity (m/s)
-r0 = np.array([0, 0, 0])  # Initial position (m)
+## ⚡ Lorentz Force
 
-dt = 1e-10  # Time step (s)
-n_steps = 1000  # Number of time steps
+The Lorentz force on a charged particle is given by:
 
-def lorentz_force(q, v, E, B):
-    """Compute the Lorentz force."""
-    return q * (E + np.cross(v, B))
+\[
+\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})
+\]
 
-def simulate_motion(q, m, r0, v0, E, B, dt, n_steps):
-    """Simulates the motion of a charged particle under Lorentz force."""
-    r = np.zeros((n_steps, 3))
-    v = v0.copy()
-    r[0] = r0
-    
-    for i in range(1, n_steps):
-        F = lorentz_force(q, v, E, B)
-        a = F / m  # Acceleration (Newton's Second Law)
-        v = v + a * dt  # Update velocity
-        r[i] = r[i - 1] + v * dt  # Update position
-    
-    return r
+Where:
+- \( \vec{F} \): Force on the particle (N)
+- \( q \): Charge of the particle (C)
+- \( \vec{E} \): Electric field (V/m)
+- \( \vec{v} \): Particle velocity (m/s)
+- \( \vec{B} \): Magnetic field (T)
 
-# Run simulation
-trajectory = simulate_motion(q, m, r0, v0, E, B, dt, n_steps)
+---
 
-# Visualization
-fig = plt.figure()
-ax = fig.add_subplot(111, projection='3d')
-ax.plot(trajectory[:, 0], trajectory[:, 1], trajectory[:, 2], label='Particle Trajectory')
-ax.set_xlabel("X Position (m)")
-ax.set_ylabel("Y Position (m)")
-ax.set_zlabel("Z Position (m)")
-ax.set_title("Motion of a Charged Particle in a Magnetic Field")
-ax.legend()
-plt.show()
+## 🧮 Equations of Motion
+
+From Newton's second law:
+
+\[
+\vec{F} = m \frac{d\vec{v}}{dt}
+\quad \Rightarrow \quad 
+\frac{d\vec{v}}{dt} = \frac{q}{m} (\vec{E} + \vec{v} \times \vec{B})
+\]
+
+\[
+\frac{d\vec{r}}{dt} = \vec{v}
+\]
+
+These are solved numerically using Euler or Runge-Kutta methods.
+
+---
+
+## 🔄 Euler Method (Discretized Form)
+
+\[
+\vec{v}_{n+1} = \vec{v}_n + \frac{q}{m} (\vec{E} + \vec{v}_n \times \vec{B}) \Delta t
+\]
+
+\[
+\vec{r}_{n+1} = \vec{r}_n + \vec{v}_n \Delta t
+\]
+
+---
+
+## 🔁 Runge-Kutta Method (4th Order — Conceptual)
+
+Intermediate steps:
+
+\[
+k_1 = f(t_n, y_n)
+\quad k_2 = f\left(t_n + \frac{h}{2}, y_n + \frac{h}{2}k_1\right)
+\quad k_3 = f\left(t_n + \frac{h}{2}, y_n + \frac{h}{2}k_2\right)
+\quad k_4 = f\left(t_n + h, y_n + hk_3\right)
+\]
+
+Then update:
+
+\[
+y_{n+1} = y_n + \frac{h}{6}(k_1 + 2k_2 + 2k_3 + k_4)
+\]
+
+---
+
+## 🔁 Larmor Radius (for Circular Motion in Magnetic Field)
+
+\[
+r_L = \frac{mv_\perp}{|q|B}
+\]
+
+Where \( v_\perp \) is the component of velocity perpendicular to \( \vec{B} \).
+
+---
+
+## ⏰ Cyclotron Frequency
+
+\[
+\omega_c = \frac{|q|B}{m}
+\quad \Rightarrow \quad 
+T = \frac{2\pi}{\omega_c}
+\]
+
+Where:
+- \( \omega_c \): Angular frequency of circular motion
+- \( T \): Period of revolution
+
+---
+
+## 📐 Drift Velocity (for Crossed \( \vec{E} \) and \( \vec{B} \) Fields)
+
+\[
+\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}
+\]
+
+---
+
+Feel free to tweak field or particle parameters and observe how the motion changes in your simulation! ⚛️
