@@ -98,4 +98,3 @@ Where:
 
 ---
 
-Feel free to tweak field or particle parameters and observe how the motion changes in your simulation! ⚛️
