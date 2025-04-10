@@ -50,4 +50,4 @@ V_i = V_{\text{total}} \cdot \frac{R_i}{R_{\text{total}}}
 
 ### Current Division:
 \
-
+![alt text](image.png)
