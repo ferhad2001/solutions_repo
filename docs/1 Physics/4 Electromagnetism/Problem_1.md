@@ -13,14 +13,3 @@ r = np.array([0.0, 0.0, 0.0])  # Initial position
 v = np.array([1.0, 0.0, 0.0])  # Initial velocity
 dt = 0.01                      # Time step (s)
 steps = 1000                  # Number of steps
-
-positions = []
-
-for _ in range(steps):
-    F = q * (E + np.cross(v, B))
-    a = F / m
-    v = v + a * dt
-    r = r + v * dt
-    positions.append(r.copy())
-
-positions = np.array(positions)
