@@ -35,7 +35,10 @@ uniform_pop = np.random.uniform(0, 1, size)
 exponential_pop = np.random.exponential(1, size)
 binomial_pop = np.random.binomial(n=10, p=0.5, size=size)
 ```
-
+![alt text](image.png)
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
 ---
 
 ## 🔁 3. Sampling and Simulating Sample Means
