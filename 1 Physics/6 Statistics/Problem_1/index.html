@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>📘 Exploring the Central Limit Theorem (CLT) - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "\ud83d\udcd8 Exploring the Central Limit Theorem (CLT)";
         var mkdocs_page_input_path = "1 Physics/6 Statistics/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -82,8 +82,20 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">6 Statistics</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">📘 Exploring the Central Limit Theorem (CLT)</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#1-understanding-the-central-limit-theorem-clt">🧠 1. Understanding the Central Limit Theorem (CLT)</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#2-population-distributions">🔢 2. Population Distributions</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#3-sampling-and-simulating-sample-means">🔁 3. Sampling and Simulating Sample Means</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#4-visualizing-the-sampling-distributions">📊 4. Visualizing the Sampling Distributions</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#5-discussion-points">🔍 5. Discussion Points</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#6-real-world-applications">🌍 6. Real-World Applications</a>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../Problem_2/">Problem 2</a>
@@ -163,7 +175,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">6 Statistics</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">📘 Exploring the Central Limit Theorem (CLT)</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -171,7 +183,80 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
+<h1 id="exploring-the-central-limit-theorem-clt">📘 Exploring the Central Limit Theorem (CLT)</h1>
+<h2 id="1-understanding-the-central-limit-theorem-clt">🧠 1. Understanding the Central Limit Theorem (CLT)</h2>
+<p>The <strong>Central Limit Theorem</strong> states:</p>
+<blockquote>
+<p>Given a population with mean <span class="arithmatex">\( \mu \)</span> and variance <span class="arithmatex">\( \sigma^2 \)</span>, the sampling distribution of the sample mean <span class="arithmatex">\( \bar{X} \)</span> will tend to be <strong>normal</strong> as the sample size <span class="arithmatex">\( n \)</span> increases, regardless of the population’s distribution.</p>
+</blockquote>
+<p><strong>Mathematical Expression</strong>:
+[
+\bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right)
+]</p>
+<hr/>
+<h2 id="2-population-distributions">🔢 2. Population Distributions</h2>
+<p>We will use:
+- Uniform distribution <span class="arithmatex">\( U(a, b) \)</span>
+- Exponential distribution <span class="arithmatex">\( \text{Exp}(\lambda) \)</span>
+- Binomial distribution <span class="arithmatex">\( \text{Bin}(n, p) \)</span></p>
+<pre><code class="language-python">import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+np.random.seed(42)  # for reproducibility
+
+size = 100000  # large population size
+
+uniform_pop = np.random.uniform(0, 1, size)
+exponential_pop = np.random.exponential(1, size)
+binomial_pop = np.random.binomial(n=10, p=0.5, size=size)
+</code></pre>
+<hr/>
+<h2 id="3-sampling-and-simulating-sample-means">🔁 3. Sampling and Simulating Sample Means</h2>
+<pre><code class="language-python">def simulate_sample_means(population, sample_size, num_samples=1000):
+    means = [np.mean(np.random.choice(population, sample_size, replace=False))
+             for _ in range(num_samples)]
+    return means
+</code></pre>
+<hr/>
+<h2 id="4-visualizing-the-sampling-distributions">📊 4. Visualizing the Sampling Distributions</h2>
+<pre><code class="language-python">sample_sizes = [5, 10, 30, 50]
+distributions = {
+    "Uniform": uniform_pop,
+    "Exponential": exponential_pop,
+    "Binomial": binomial_pop
+}
+
+for dist_name, pop in distributions.items():
+    plt.figure(figsize=(16, 8))
+    for i, n in enumerate(sample_sizes, 1):
+        plt.subplot(2, 2, i)
+        sample_means = simulate_sample_means(pop, n)
+        sns.histplot(sample_means, kde=True, bins=30, color="skyblue")
+        plt.title(f"{dist_name} Distribution - Sample Size {n}")
+        plt.xlabel("Sample Mean")
+    plt.tight_layout()
+    plt.suptitle(f"Sampling Distribution from {dist_name} Population", y=1.02)
+    plt.show()
+</code></pre>
+<hr/>
+<h2 id="5-discussion-points">🔍 5. Discussion Points</h2>
+<ul>
+<li>As sample size increases, <strong>sample means become more normally distributed</strong>.</li>
+<li><strong>Exponential</strong> (a skewed distribution) shows slower convergence.</li>
+<li><strong>Uniform</strong> and <strong>Binomial</strong> converge more quickly.</li>
+<li>Spread of sampling distributions <strong>decreases</strong> with increasing <span class="arithmatex">\( n \)</span> due to:
+[
+\text{Standard Error} = \frac{\sigma}{\sqrt{n}}
+]</li>
+</ul>
+<hr/>
+<h2 id="6-real-world-applications">🌍 6. Real-World Applications</h2>
+<ul>
+<li><strong>Estimating population parameters</strong> when the population is unknown.</li>
+<li><strong>Quality control</strong>: Detecting abnormalities in manufacturing.</li>
+<li><strong>Finance</strong>: Predicting stock returns using average daily changes.</li>
+</ul>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
