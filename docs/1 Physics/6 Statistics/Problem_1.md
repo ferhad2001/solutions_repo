@@ -8,6 +8,7 @@ The **Central Limit Theorem** states:
 > Given a population with mean \( \mu \) and variance \( \sigma^2 \), the sampling distribution of the sample mean \( \bar{X} \) will tend to be **normal** as the sample size \( n \) increases, regardless of the population’s distribution.
 
 **Mathematical Expression**:
+
 \[
 \bar{X} \sim N\left(\mu, \frac{\sigma^2}{n}\right)
 \]
@@ -79,6 +80,7 @@ for dist_name, pop in distributions.items():
 - **Exponential** (a skewed distribution) shows slower convergence.
 - **Uniform** and **Binomial** converge more quickly.
 - Spread of sampling distributions **decreases** with increasing \( n \) due to:
+
 \[
 \text{Standard Error} = \frac{\sigma}{\sqrt{n}}
 \]
