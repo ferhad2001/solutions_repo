@@ -236,39 +236,6 @@ plot_circle_method(xi, yi, xo, yo, pi_circle, num_points)
 pi_buffon = estimate_pi_buffon(num_drops)
 print(f"[Buffon's Needle] Estimated π: {pi_buffon:.5f} using {num_drops} needle drops")
 </code></pre>
-<p>"""</p>
-<h1 id="estimating-using-monte-carlo-methods">Estimating π Using Monte Carlo Methods</h1>
-<h2 id="1-introduction">1. Introduction</h2>
-<p>This script demonstrates two Monte Carlo techniques to estimate π:
-- Geometric probability via points inside a circle.
-- Buffon's Needle problem using random needle drops.</p>
-<h2 id="2-circle-based-method">2. Circle-Based Method</h2>
-<h3 id="formula">Formula:</h3>
-<p>π ≈ 4 * (number of points inside circle / total number of points)</p>
-<h3 id="procedure">Procedure:</h3>
-<ul>
-<li>Generate random (x, y) in a unit square.</li>
-<li>Count how many fall within the inscribed circle.</li>
-<li>Multiply ratio by 4 to estimate π.</li>
-</ul>
-<h2 id="3-buffons-needle-method">3. Buffon's Needle Method</h2>
-<h3 id="formula_1">Formula:</h3>
-<p>π ≈ (2 * needle_length * num_drops) / (line_spacing * crossings)</p>
-<h3 id="procedure_1">Procedure:</h3>
-<ul>
-<li>Simulate needle drops across parallel lines.</li>
-<li>Count how many cross a line.</li>
-<li>Use formula to estimate π.</li>
-</ul>
-<h2 id="4-results-and-observations">4. Results and Observations</h2>
-<ul>
-<li>Both methods converge to π with more iterations.</li>
-<li>The circle method generally converges faster.</li>
-<li>Buffon’s method shows more variance for fewer trials.</li>
-</ul>
-<h2 id="5-conclusion">5. Conclusion</h2>
-<p>Monte Carlo simulations provide elegant probabilistic estimations for mathematical constants like π.
-"""</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
