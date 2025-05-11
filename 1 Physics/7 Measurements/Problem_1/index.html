@@ -92,6 +92,20 @@
 <ul class="current">
 <li class="toctree-l2 current"><a class="reference internal current" href="#">Measuring Earth's Gravitational Acceleration with a Pendulum</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#materials">Materials</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#procedure">Procedure</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#calculations">Calculations</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#final-result">Final Result</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analysis">Analysis</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#visualization">Visualization</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -172,49 +186,118 @@
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
 <h1 id="measuring-earths-gravitational-acceleration-with-a-pendulum">Measuring Earth's Gravitational Acceleration with a Pendulum</h1>
-<p>import numpy as np
-import matplotlib.pyplot as plt</p>
-<h1 id="-step-1-input-measurements-">------------------ Step 1: Input Measurements ------------------</h1>
-<p>L = 1.0  # Pendulum length in meters
-resolution_ruler = 0.01  # Ruler resolution in meters
-Delta_L = resolution_ruler / 2  # Uncertainty in length</p>
-<h1 id="time-measurements-for-10-oscillations-t_10-in-seconds">Time measurements for 10 oscillations (T_10), in seconds</h1>
-<p>T_10_values = [20.1, 19.9, 20.0, 20.2, 19.8, 20.1, 19.9, 20.0, 20.2, 19.8]
-T_10_values = np.array(T_10_values)
-n = len(T_10_values)</p>
-<h1 id="-step-2-calculate-mean-and-uncertainties-">------------------ Step 2: Calculate Mean and Uncertainties ------------------</h1>
-<p>T_10_mean = np.mean(T_10_values)
-sigma_T = np.std(T_10_values, ddof=1)
-Delta_T_10 = sigma_T / np.sqrt(n)</p>
-<h1 id="calculate-single-oscillation-period-and-uncertainty">Calculate single oscillation period and uncertainty</h1>
-<p>T = T_10_mean / 10
-Delta_T = Delta_T_10 / 10</p>
-<h1 id="-step-3-calculate-g-">------------------ Step 3: Calculate g ------------------</h1>
-<h1 id="formula-g-4-pi2-l-t2">Formula: g = 4 * pi^2 * L / T^2</h1>
-<p>g = 4 * np.pi<strong>2 * L / T</strong>2</p>
-<h1 id="-step-4-uncertainty-in-g-">------------------ Step 4: Uncertainty in g ------------------</h1>
-<p>Delta_g = g * np.sqrt((Delta_L / L)<strong>2 + (2 * Delta_T / T)</strong>2)</p>
-<h1 id="-step-5-output-results-">------------------ Step 5: Output Results ------------------</h1>
-<p>print("Length of pendulum L =", L, "m")
-print("Uncertainty in length ΔL =", Delta_L, "m")
-print("Mean time for 10 oscillations T̄₁₀ =", round(T_10_mean, 3), "s")
-print("Standard deviation σ_T =", round(sigma_T, 3), "s")
-print("Uncertainty in T̄₁₀ =", round(Delta_T_10, 3), "s")
-print("Period of 1 oscillation T =", round(T, 3), "s")
-print("Uncertainty in period ΔT =", round(Delta_T, 4), "s")
-print("\ng =", round(g, 3), "m/s²")
-print("Δg =", round(Delta_g, 3), "m/s²")</p>
-<h1 id="-step-6-visualization-">------------------ Step 6: Visualization ------------------</h1>
-<p>plt.figure(figsize=(8, 4))
-plt.plot(range(1, n+1), T_10_values, marker='o', linestyle='-', color='blue')
-plt.axhline(T_10_mean, color='red', linestyle='--', label=f"Mean = {T_10_mean:.2f} s")
-plt.title("Time for 10 Oscillations")
-plt.xlabel("Trial")
-plt.ylabel("Time (s)")
-plt.grid(True)
-plt.legend()
-plt.tight_layout()
-plt.show()</p>
+<h2 id="motivation">Motivation</h2>
+<p>The acceleration due to gravity, <strong>g</strong>, is a fundamental physical constant. Measuring it with a pendulum allows us to explore oscillatory motion and analyze uncertainties in experimental physics.</p>
+<hr/>
+<h2 id="materials">Materials</h2>
+<ul>
+<li>String (~1 meter)</li>
+<li>Small weight (e.g., coins or keychain)</li>
+<li>Stopwatch or phone timer</li>
+<li>Ruler (resolution: 0.01 m)</li>
+</ul>
+<hr/>
+<h2 id="procedure">Procedure</h2>
+<ol>
+<li>
+<p>Measure length of pendulum:<br/>
+<span class="arithmatex">\( L = 1.0 \text{ m},\quad \Delta L = \frac{0.01}{2} = 0.005 \text{ m} \)</span></p>
+</li>
+<li>
+<p>Record 10 measurements of time for 10 oscillations:</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Trial</th>
+<th>Time (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>20.1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>19.9</td>
+</tr>
+<tr>
+<td>3</td>
+<td>20.0</td>
+</tr>
+<tr>
+<td>4</td>
+<td>20.2</td>
+</tr>
+<tr>
+<td>5</td>
+<td>19.8</td>
+</tr>
+<tr>
+<td>6</td>
+<td>20.1</td>
+</tr>
+<tr>
+<td>7</td>
+<td>19.9</td>
+</tr>
+<tr>
+<td>8</td>
+<td>20.0</td>
+</tr>
+<tr>
+<td>9</td>
+<td>20.2</td>
+</tr>
+<tr>
+<td>10</td>
+<td>19.8</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="calculations">Calculations</h2>
+<ul>
+<li>Mean time <span class="arithmatex">\( \overline{T_{10}} = 20.0 \text{ s} \)</span></li>
+<li>Standard deviation <span class="arithmatex">\( \sigma_T = 0.1549 \text{ s} \)</span></li>
+<li>
+<p>Uncertainty in mean:<br/>
+<span class="arithmatex">\( \Delta T_{10} = \frac{\sigma_T}{\sqrt{10}} = 0.049 \text{ s} \)</span></p>
+</li>
+<li>
+<p>Period of one oscillation:<br/>
+<span class="arithmatex">\( T = \frac{\overline{T_{10}}}{10} = 2.0 \text{ s} \)</span><br/>
+<span class="arithmatex">\( \Delta T = \frac{\Delta T_{10}}{10} = 0.0049 \text{ s} \)</span></p>
+</li>
+<li>
+<p>Gravity:<br/>
+<span class="arithmatex">\( g = \frac{4 \pi^2 L}{T^2} = 9.87 \text{ m/s}^2 \)</span></p>
+</li>
+<li>
+<p>Uncertainty in gravity:<br/>
+  [
+  \Delta g = g \cdot \sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(\frac{2\Delta T}{T}\right)^2} = 0.065 \text{ m/s}^2
+  ]</p>
+</li>
+</ul>
+<hr/>
+<h2 id="final-result">Final Result</h2>
+<ul>
+<li><strong>Measured</strong>: <span class="arithmatex">\( g = 9.87 \pm 0.07 \text{ m/s}^2 \)</span></li>
+<li><strong>Expected</strong>: <span class="arithmatex">\( g = 9.81 \text{ m/s}^2 \)</span></li>
+</ul>
+<hr/>
+<h2 id="analysis">Analysis</h2>
+<ul>
+<li>Small timing variability affects <span class="arithmatex">\( \Delta T \)</span>, influencing <span class="arithmatex">\( \Delta g \)</span></li>
+<li>Ruler resolution impacts <span class="arithmatex">\( \Delta L \)</span></li>
+<li>Assumption: ideal pendulum with small angle (&lt;15°), no air resistance</li>
+</ul>
+<hr/>
+<h2 id="visualization">Visualization</h2>
+<p>See the notebook for the plot of timing trials.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
