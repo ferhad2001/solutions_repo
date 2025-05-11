@@ -66,38 +66,3 @@ if __name__ == '__main__':
     # Buffon's Needle estimation
     pi_buffon = estimate_pi_buffon(num_drops)
     print(f"[Buffon's Needle] Estimated π: {pi_buffon:.5f} using {num_drops} needle drops")
-
-"""
-# Estimating π Using Monte Carlo Methods
-
-## 1. Introduction
-This script demonstrates two Monte Carlo techniques to estimate π:
-- Geometric probability via points inside a circle.
-- Buffon's Needle problem using random needle drops.
-
-## 2. Circle-Based Method
-### Formula:
-π ≈ 4 * (number of points inside circle / total number of points)
-
-### Procedure:
-- Generate random (x, y) in a unit square.
-- Count how many fall within the inscribed circle.
-- Multiply ratio by 4 to estimate π.
-
-## 3. Buffon's Needle Method
-### Formula:
-π ≈ (2 * needle_length * num_drops) / (line_spacing * crossings)
-
-### Procedure:
-- Simulate needle drops across parallel lines.
-- Count how many cross a line.
-- Use formula to estimate π.
-
-## 4. Results and Observations
-- Both methods converge to π with more iterations.
-- The circle method generally converges faster.
-- Buffon’s method shows more variance for fewer trials.
-
-## 5. Conclusion
-Monte Carlo simulations provide elegant probabilistic estimations for mathematical constants like π.
-"""
