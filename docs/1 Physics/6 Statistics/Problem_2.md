@@ -1,68 +1,100 @@
-# Monte Carlo Estimation of Pi using Circle Method and Buffon's Needle
+# Estimating Pi using Monte Carlo Methods
 
-import random
-import math
-import matplotlib.pyplot as plt
+## 1. Motivation
+Monte Carlo simulations leverage randomness to solve complex numerical and probabilistic problems. One elegant application is estimating the mathematical constant \( \pi \). By generating random points or simulating physical systems like Buffon's Needle, we can approximate \( \pi \) using geometric probability.
 
-### PART 1: Circle-based Monte Carlo Estimation ###
-def estimate_pi_circle(num_points):
-    inside_circle = 0
-    x_inside, y_inside = [], []
-    x_outside, y_outside = [], []
+These methods not only demonstrate foundational ideas in probability, geometry, and computation but also showcase the practical usefulness of randomness in physics, finance, and computer science.
 
-    for _ in range(num_points):
-        x = random.uniform(-1, 1)
-        y = random.uniform(-1, 1)
-        if x**2 + y**2 <= 1:
-            inside_circle += 1
-            x_inside.append(x)
-            y_inside.append(y)
-        else:
-            x_outside.append(x)
-            y_outside.append(y)
+---
 
-    pi_estimate = 4 * inside_circle / num_points
-    return pi_estimate, x_inside, y_inside, x_outside, y_outside
+## 2. Method 1: Estimating \( \pi \) Using a Circle
 
-# Visualization for circle method
-def plot_circle_method(xi, yi, xo, yo, pi, num_points):
-    plt.figure(figsize=(6,6))
-    plt.scatter(xi, yi, color='blue', s=1, label='Inside Circle')
-    plt.scatter(xo, yo, color='red', s=1, label='Outside Circle')
-    plt.title(f'Monte Carlo Estimation of π\nEstimated π = {pi:.5f} with {num_points} points')
-    plt.legend()
-    plt.xlabel('x')
-    plt.ylabel('y')
-    plt.axis('equal')
-    plt.grid(True)
-    plt.show()
+### Theoretical Foundation
+For a unit circle inscribed in a square of side length 2 (from -1 to 1 on both axes), the area of the circle is:
 
-### PART 2: Buffon's Needle Estimation ###
-def estimate_pi_buffon(num_drops, needle_length=1.0, line_spacing=1.0):
-    crossings = 0
-    for _ in range(num_drops):
-        y_center = random.uniform(0, line_spacing / 2)
-        theta = random.uniform(0, math.pi / 2)
-        if y_center <= (needle_length / 2) * math.sin(theta):
-            crossings += 1
+```markdown
+A_{circle} = \pi r^2 = \pi \cdot 1^2 = \pi
+```
 
-    if crossings == 0:
-        return float('inf')  # Avoid division by zero
+And the area of the square is:
 
-    pi_estimate = (2 * needle_length * num_drops) / (line_spacing * crossings)
-    return pi_estimate
+```markdown
+A_{square} = (2r)^2 = 4
+```
 
-### MAIN EXECUTION ###
-if __name__ == '__main__':
-    # Parameters
-    num_points = 10000
-    num_drops = 10000
+If we generate points uniformly in the square and count how many fall inside the circle, the ratio:
 
-    # Circle-based estimation
-    pi_circle, xi, yi, xo, yo = estimate_pi_circle(num_points)
-    print(f"[Circle Method] Estimated π: {pi_circle:.5f} using {num_points} points")
-    plot_circle_method(xi, yi, xo, yo, pi_circle, num_points)
+```markdown
+\frac{\text{points inside circle}}{\text{total points}} \approx \frac{\pi}{4}
+```
 
-    # Buffon's Needle estimation
-    pi_buffon = estimate_pi_buffon(num_drops)
-    print(f"[Buffon's Needle] Estimated π: {pi_buffon:.5f} using {num_drops} needle drops")
+Thus:
+
+```markdown
+\pi \approx 4 \cdot \left( \frac{\text{points inside circle}}{\text{total points}} \right)
+```
+
+### Simulation Steps
+1. Generate random (x, y) points in a square [-1, 1] x [-1, 1].
+2. Check whether each point lies inside the unit circle: \( x^2 + y^2 \leq 1 \).
+3. Count how many fall inside the circle.
+4. Estimate \( \pi \) using the formula above.
+
+### Visualization
+A scatter plot is used to show points inside the circle (blue) and outside (red).
+
+### Analysis
+As the number of points increases, the accuracy of \( \pi \) improves due to the Law of Large Numbers. Convergence rate can be slow, requiring many samples for precision.
+
+---
+
+## 3. Method 2: Estimating \( \pi \) Using Buffon's Needle
+
+### Theoretical Foundation
+Buffon's Needle is a probability problem: If a needle of length \( L \) is dropped onto a plane with parallel lines distance \( D \) apart (where \( L \leq D \)), the probability it crosses a line is:
+
+```markdown
+P = \frac{2L}{\pi D}
+```
+
+Rearranging for \( \pi \):
+
+```markdown
+\pi \approx \frac{2L \cdot N}{D \cdot C}
+```
+
+Where:
+- \( N \) is the number of throws,
+- \( C \) is the number of times the needle crosses a line.
+
+### Simulation Steps
+1. Randomly generate the center position and angle of the needle.
+2. Determine if it crosses a line.
+3. Count the number of crossings.
+4. Apply the above formula to estimate \( \pi \).
+
+### Visualization
+This method can be visualized using lines and simulated needle placements.
+
+### Analysis
+Buffon's Needle converges more slowly and is more sensitive to geometric setup but offers a fascinating link between geometry and probability.
+
+---
+
+## 4. Comparison and Conclusion
+| Method              | Accuracy (Sample Size = 10,000) | Convergence Rate | Complexity |
+|---------------------|----------------------------------|------------------|------------|
+| Monte Carlo Circle  | High                            | Fast             | Simple     |
+| Buffon's Needle     | Moderate                        | Slower           | Moderate   |
+
+### Final Notes
+- Monte Carlo Circle is preferred for simplicity and faster convergence.
+- Buffon's Needle is an excellent pedagogical example of probabilistic geometry.
+
+---
+
+## 5. References
+- Monte Carlo Methods in Scientific Computing
+- Buffon's Needle Probability Problem, Wikipedia
+- Computational Physics by Mark Newman
+- Python libraries: NumPy, Matplotlib
