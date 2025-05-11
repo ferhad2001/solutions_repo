@@ -8,7 +8,8 @@ These methods not only demonstrate foundational ideas in probability, geometry, 
 ---
 
 ## 2. Method 1: Estimating \( \pi \) Using a Circle
-
+![alt text](image-4.png)
+![alt text](image-5.png)
 ### Theoretical Foundation
 For a unit circle inscribed in a square of side length 2 (from -1 to 1 on both axes), the area of the circle is:
 
@@ -49,6 +50,7 @@ As the number of points increases, the accuracy of \( \pi \) improves due to the
 ---
 
 ## 3. Method 2: Estimating \( \pi \) Using Buffon's Needle
+![alt text](pi_comparison_convergence_plot.png)
 
 ### Theoretical Foundation
 Buffon's Needle is a probability problem: If a needle of length \( L \) is dropped onto a plane with parallel lines distance \( D \) apart (where \( L \leq D \)), the probability it crosses a line is:
