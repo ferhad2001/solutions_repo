@@ -69,12 +69,6 @@ The acceleration due to gravity, **g**, is a fundamental physical constant. Meas
 
 ---
 
-## Visualization
-See the notebook for the plot of timing trials.
-
-
-
----
 
 ## Visualization
 
