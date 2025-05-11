@@ -78,6 +78,6 @@ See the notebook for the plot of timing trials.
 
 ## Visualization
 
-![Timing Plot](pendulum_timing_diagram.png)
+![alt text](image.png)
 
 *Timing for 10 oscillations across trials.*
