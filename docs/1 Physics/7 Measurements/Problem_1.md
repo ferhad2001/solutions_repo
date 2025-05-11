@@ -1,54 +1,74 @@
+
 # Measuring Earth's Gravitational Acceleration with a Pendulum
 
-import numpy as np
-import matplotlib.pyplot as plt
+## Motivation
+The acceleration due to gravity, **g**, is a fundamental physical constant. Measuring it with a pendulum allows us to explore oscillatory motion and analyze uncertainties in experimental physics.
 
-# ------------------ Step 1: Input Measurements ------------------ #
-L = 1.0  # Pendulum length in meters
-resolution_ruler = 0.01  # Ruler resolution in meters
-Delta_L = resolution_ruler / 2  # Uncertainty in length
+---
 
-# Time measurements for 10 oscillations (T_10), in seconds
-T_10_values = [20.1, 19.9, 20.0, 20.2, 19.8, 20.1, 19.9, 20.0, 20.2, 19.8]
-T_10_values = np.array(T_10_values)
-n = len(T_10_values)
+## Materials
+- String (~1 meter)
+- Small weight (e.g., coins or keychain)
+- Stopwatch or phone timer
+- Ruler (resolution: 0.01 m)
 
-# ------------------ Step 2: Calculate Mean and Uncertainties ------------------ #
-T_10_mean = np.mean(T_10_values)
-sigma_T = np.std(T_10_values, ddof=1)
-Delta_T_10 = sigma_T / np.sqrt(n)
+---
 
-# Calculate single oscillation period and uncertainty
-T = T_10_mean / 10
-Delta_T = Delta_T_10 / 10
+## Procedure
+1. Measure length of pendulum:  
+   \( L = 1.0 \text{ m},\quad \Delta L = \frac{0.01}{2} = 0.005 \text{ m} \)
 
-# ------------------ Step 3: Calculate g ------------------ #
-# Formula: g = 4 * pi^2 * L / T^2
-g = 4 * np.pi**2 * L / T**2
+2. Record 10 measurements of time for 10 oscillations:
 
-# ------------------ Step 4: Uncertainty in g ------------------ #
-Delta_g = g * np.sqrt((Delta_L / L)**2 + (2 * Delta_T / T)**2)
+| Trial | Time (s) |
+|-------|----------|
+| 1     | 20.1     |
+| 2     | 19.9     |
+| 3     | 20.0     |
+| 4     | 20.2     |
+| 5     | 19.8     |
+| 6     | 20.1     |
+| 7     | 19.9     |
+| 8     | 20.0     |
+| 9     | 20.2     |
+| 10    | 19.8     |
 
-# ------------------ Step 5: Output Results ------------------ #
-print("Length of pendulum L =", L, "m")
-print("Uncertainty in length ΔL =", Delta_L, "m")
-print("Mean time for 10 oscillations T̄₁₀ =", round(T_10_mean, 3), "s")
-print("Standard deviation σ_T =", round(sigma_T, 3), "s")
-print("Uncertainty in T̄₁₀ =", round(Delta_T_10, 3), "s")
-print("Period of 1 oscillation T =", round(T, 3), "s")
-print("Uncertainty in period ΔT =", round(Delta_T, 4), "s")
-print("\ng =", round(g, 3), "m/s²")
-print("Δg =", round(Delta_g, 3), "m/s²")
+---
 
-# ------------------ Step 6: Visualization ------------------ #
-plt.figure(figsize=(8, 4))
-plt.plot(range(1, n+1), T_10_values, marker='o', linestyle='-', color='blue')
-plt.axhline(T_10_mean, color='red', linestyle='--', label=f"Mean = {T_10_mean:.2f} s")
-plt.title("Time for 10 Oscillations")
-plt.xlabel("Trial")
-plt.ylabel("Time (s)")
-plt.grid(True)
-plt.legend()
-plt.tight_layout()
-plt.show()
+## Calculations
+
+- Mean time \( \overline{T_{10}} = 20.0 \text{ s} \)
+- Standard deviation \( \sigma_T = 0.1549 \text{ s} \)
+- Uncertainty in mean:  
+  \( \Delta T_{10} = \frac{\sigma_T}{\sqrt{10}} = 0.049 \text{ s} \)
+
+- Period of one oscillation:  
+  \( T = \frac{\overline{T_{10}}}{10} = 2.0 \text{ s} \)  
+  \( \Delta T = \frac{\Delta T_{10}}{10} = 0.0049 \text{ s} \)
+
+- Gravity:  
+  \( g = \frac{4 \pi^2 L}{T^2} = 9.87 \text{ m/s}^2 \)
+
+- Uncertainty in gravity:  
+  \[
+  \Delta g = g \cdot \sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(\frac{2\Delta T}{T}\right)^2} = 0.065 \text{ m/s}^2
+  \]
+
+---
+
+## Final Result
+- **Measured**: \( g = 9.87 \pm 0.07 \text{ m/s}^2 \)
+- **Expected**: \( g = 9.81 \text{ m/s}^2 \)
+
+---
+
+## Analysis
+- Small timing variability affects \( \Delta T \), influencing \( \Delta g \)
+- Ruler resolution impacts \( \Delta L \)
+- Assumption: ideal pendulum with small angle (<15°), no air resistance
+
+---
+
+## Visualization
+See the notebook for the plot of timing trials.
 
