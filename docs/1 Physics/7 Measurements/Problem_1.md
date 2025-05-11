@@ -72,3 +72,12 @@ The acceleration due to gravity, **g**, is a fundamental physical constant. Meas
 ## Visualization
 See the notebook for the plot of timing trials.
 
+
+
+---
+
+## Visualization
+
+![Timing Plot](pendulum_timing_diagram.png)
+
+*Timing for 10 oscillations across trials.*
